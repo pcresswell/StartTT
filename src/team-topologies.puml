@@ -35,6 +35,6 @@ skinparam rectangle<<team>> {
 
 ' Basic macros (to be expanded in future tickets)
 !unquoted procedure TeamRect($alias, $label)
-  rectangle "$label" <<team>> as "$alias"
+  rectangle "$label" as $alias <<team>>
 !endprocedure
 

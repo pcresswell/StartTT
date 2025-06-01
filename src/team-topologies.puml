@@ -34,7 +34,5 @@ skinparam rectangle {
 }
 
 ' Basic macros (to be expanded in future tickets)
-!unquoted procedure TeamRect($alias, $label)
-  rectangle "$label" as $alias
-!endprocedure
+!define TeamRect(label) rectangle label
 

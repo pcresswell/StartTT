@@ -4,6 +4,6 @@
 !include ../src/team-topologies.puml
 
 ' Test basic team rectangle
-TeamRect(test_team, "Test Team")
+TeamRect("Test Team")
 
 @enduml

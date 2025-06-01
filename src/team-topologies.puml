@@ -6,10 +6,13 @@
 ' A PlantUML extension for creating Team Topologies diagrams
 ' Based on the book "Team Topologies" by Matthew Skelton and Manuel Pais
 
-' Namespace declaration to avoid conflicts
-!define TEAMTOPO_PUML
-!$TEAMTOPO_VERSION = "1.0.0"
-!global $TEAMTOPO_PUML = "team-topologies.puml"
+' Version and namespace
+!ifndef TEAMTOPO_VERSION
+  !global $TEAMTOPO_VERSION = "1.0.0"
+!endif
+!ifndef TEAMTOPO_PUML
+  !global $TEAMTOPO_PUML = "team-topologies.puml"
+!endif
 
 ' Default values
 !$TEAM_BG_COLOR ?= "#FFFFFF"

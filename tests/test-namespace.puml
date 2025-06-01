@@ -13,6 +13,6 @@
 !endif
 
 ' Test basic functionality
-TeamRect("Namespace Test Team")
+TeamRect(namespace_test_team, "Namespace Test Team")
 
 @enduml

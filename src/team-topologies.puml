@@ -8,33 +8,27 @@
 
 ' Namespace declaration to avoid conflicts
 !define TEAMTOPO_PUML
-!ifndef TEAMTOPO_VERSION
-  !define TEAMTOPO_VERSION 0.1.0
-!endif
+!$TEAMTOPO_VERSION = "1.0.0"
+!global $TEAMTOPO_PUML = "team-topologies.puml"
 
-' Common styles and colors
-!define TEAM_BG_COLOR #FFFFFF
-!define TEAM_BORDER_COLOR #333333
-!define TEAM_TEXT_COLOR #333333
+' Default values
+!$TEAM_BG_COLOR ?= "#FFFFFF"
+!$TEAM_BORDER_COLOR ?= "#333333"
+!$TEAM_FONT_COLOR ?= "#333333"
+!$TEAM_FONT_SIZE ?= 14
 
 ' Basic skinparam settings
-skinparam {
-  DefaultTextAlignment center
-  RoundCorner 10
-  Shadowing false
-}
+skinparam defaultTextAlignment center
 
 ' Element Styles
 skinparam rectangle {
   BackgroundColor $TEAM_BG_COLOR
   BorderColor $TEAM_BORDER_COLOR
-  FontColor $TEAM_TEXT_COLOR
-  FontSize 14
-  Padding 20
+  FontColor $TEAM_FONT_COLOR
+  FontSize $TEAM_FONT_SIZE
 }
 
-' Basic macros (to be expanded in future tickets)
-!unquoted procedure $TeamRect($label)
+' Basic team definition
+!unquoted procedure Team($label)
   rectangle "$label"
 !endprocedure
-

@@ -3,13 +3,7 @@
 
 !include ../src/team-topologies.puml
 
-' Debug output
-legend
-  Basic test
-  Using TeamRect("Test Team")
-endlegend
-
 ' Test basic team rectangle
-$TeamRect("Test Team")
+Team("Test Team")
 
 @enduml

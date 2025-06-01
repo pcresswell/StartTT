@@ -38,7 +38,13 @@ This project uses VS Code Dev Containers to ensure a consistent development envi
 ### Prerequisites
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
-2. Install [Visual Studio Code](https://code.visualstudio.com/)
+
+2. Install Visual Studio Code:
+   ```bash
+   brew install --cask visual-studio-code
+   ```
+   Alternatively, you can download it from the [official website](https://code.visualstudio.com/)
+
 3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code
 
 ### Getting Started

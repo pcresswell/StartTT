@@ -22,16 +22,19 @@ skinparam {
   DefaultTextAlignment center
   RoundCorner 10
   Shadowing false
-  
-  Rectangle {
-    BackgroundColor $TEAM_BG_COLOR
-    BorderColor $TEAM_BORDER_COLOR
-    FontColor $TEAM_TEXT_COLOR
-  }
+}
+
+' Element Styles
+skinparam rectangle<<team>> {
+  BackgroundColor $TEAM_BG_COLOR
+  BorderColor $TEAM_BORDER_COLOR
+  FontColor $TEAM_TEXT_COLOR
 }
 
 ' Basic macros (to be expanded in future tickets)
-!define TeamRect(name) rectangle "name"
+!unquoted procedure TeamRect($alias, $label)
+  rectangle "$label" <<team>> as $alias
+!endprocedure
 
 ' Usage example:
 ' @startuml

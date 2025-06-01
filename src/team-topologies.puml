@@ -25,7 +25,7 @@ skinparam {
 }
 
 ' Element Styles
-skinparam rectangle<<team>> {
+skinparam rectangle {
   BackgroundColor $TEAM_BG_COLOR
   BorderColor $TEAM_BORDER_COLOR
   FontColor $TEAM_TEXT_COLOR
@@ -35,6 +35,6 @@ skinparam rectangle<<team>> {
 
 ' Basic macros (to be expanded in future tickets)
 !unquoted procedure TeamRect($alias, $label)
-  rectangle "$label" as $alias <<team>>
+  rectangle "$label" as $alias
 !endprocedure
 

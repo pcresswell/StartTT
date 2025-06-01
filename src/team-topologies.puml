@@ -12,20 +12,26 @@
   !define TEAMTOPO_VERSION 0.1.0
 !endif
 
-' Basic skinparam settings
-skinparam {
-  DefaultTextAlignment center
-  RoundCorner 10
-  Shadowing false
-}
-
 ' Common styles and colors
 !define TEAM_BG_COLOR #FFFFFF
 !define TEAM_BORDER_COLOR #333333
 !define TEAM_TEXT_COLOR #333333
 
+' Basic skinparam settings
+skinparam {
+  DefaultTextAlignment center
+  RoundCorner 10
+  Shadowing false
+  
+  Rectangle {
+    BackgroundColor $TEAM_BG_COLOR
+    BorderColor $TEAM_BORDER_COLOR
+    FontColor $TEAM_TEXT_COLOR
+  }
+}
+
 ' Basic macros (to be expanded in future tickets)
-!define TeamRect(name) rectangle name #$TEAM_BG_COLOR
+!define TeamRect(name) rectangle "name"
 
 ' Usage example:
 ' @startuml

@@ -1,0 +1,18 @@
+@startuml
+' Test diagram for TT-001: Namespace isolation
+
+!include ../src/team-topologies.puml
+
+' Test namespace isolation
+!if %not(%variable_exists("TEAMTOPO_PUML"))
+  !error "TEAMTOPO_PUML namespace not defined"
+!endif
+
+!if %not(%variable_exists("TEAMTOPO_VERSION"))
+  !error "TEAMTOPO_VERSION not defined"
+!endif
+
+' Test basic functionality
+TeamRect("Namespace Test Team")
+
+@enduml

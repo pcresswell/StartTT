@@ -31,19 +31,61 @@ This extension provides a comprehensive set of PlantUML macros and styles for re
 
 This project is under active development. Check our [tickets](tickets/) for detailed implementation status and upcoming features.
 
-## Getting Started
+## Development Setup
 
-*Coming soon with TT-022 and TT-023*
+This project uses VS Code Dev Containers to ensure a consistent development environment for all contributors.
 
-The extension will be easy to use in your PlantUML diagrams:
+### Prerequisites
 
-```plantuml
-@startuml
-!include team-topologies.puml
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+2. Install [Visual Studio Code](https://code.visualstudio.com/)
+3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code
 
-' Your team topology diagram code will go here
+### Getting Started
 
-@enduml
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/pcresswell/StartTT.git
+   cd StartTT
+   ```
+
+2. Open the project in VS Code:
+   ```bash
+   code .
+   ```
+
+3. When prompted, click "Reopen in Container" or:
+   - Press F1
+   - Select "Dev Containers: Reopen in Container"
+
+4. Wait for the container to build. This will:
+   - Install Java, Graphviz, and PlantUML
+   - Set up VS Code extensions
+   - Start the PlantUML server
+
+### Development Environment
+
+The dev container provides:
+- Java 11 runtime
+- Graphviz for diagram rendering
+- PlantUML server on port 8080
+- VS Code extensions for PlantUML and Markdown
+- Automatic diagram preview
+
+### Usage
+
+Once the dev container is running, you can:
+1. Create or edit `.puml` files
+2. Use the PlantUML preview (Alt+D to open preview)
+3. Access the PlantUML server at http://localhost:8080
+
+### Project Structure
+```
+team-topologies-plantuml/
+├── src/               # Main source files
+├── examples/          # Example diagrams
+├── tests/            # Test diagrams
+└── themes/           # Theme configurations
 ```
 
 ## Documentation

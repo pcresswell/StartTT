@@ -34,5 +34,7 @@ skinparam rectangle {
 }
 
 ' Basic macros (to be expanded in future tickets)
-!define TeamRect(label) rectangle "label"
+!unquoted function $TeamRect($label)
+  rectangle "$label"
+!endfunction
 

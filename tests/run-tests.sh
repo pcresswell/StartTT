@@ -1,15 +1,29 @@
 #!/bin/bash
 
+# Colors for output
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # Run all PlantUML test files
 for test_file in *.puml; do
-    echo "Testing: $test_file"
-    java -jar /plantuml/plantuml.jar "$test_file"
-    if [ $? -eq 0 ]; then
-        echo "✅ Test passed: $test_file"
+    echo -e "\n🔍 Testing: ${test_file}"
+    echo "----------------------------------------"
+    
+    # Run PlantUML with debug output
+    java -jar /plantuml/plantuml.jar -verbose "$test_file"
+    result=$?
+    
+    if [ $result -eq 0 ]; then
+        echo -e "\n${GREEN}✅ Test passed: $test_file${NC}"
     else
-        echo "❌ Test failed: $test_file"
+        echo -e "\n${RED}❌ Test failed: $test_file${NC}"
+        echo "\nPlantUML Error Code: $result"
+        echo "See: https://plantuml.com/error"
         exit 1
     fi
+    
+    echo "----------------------------------------"
 done
 
-echo "All tests completed successfully!"
+echo -e "\n${GREEN}🎉 All tests completed successfully!${NC}"

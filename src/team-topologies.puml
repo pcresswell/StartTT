@@ -36,8 +36,3 @@ skinparam rectangle<<team>> {
   rectangle "$label" <<team>> as $alias
 !endprocedure
 
-' Usage example:
-' @startuml
-' !include team-topologies.puml
-' TeamRect("My Team")
-' @enduml

@@ -45,7 +45,11 @@ This project uses VS Code Dev Containers to ensure a consistent development envi
    ```
    Alternatively, you can download it from the [official website](https://code.visualstudio.com/)
 
-3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code
+3. Install the Dev Containers extension:
+   ```bash
+   code --install-extension ms-vscode-remote.remote-containers
+   ```
+   Alternatively, you can install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ### Getting Started
 

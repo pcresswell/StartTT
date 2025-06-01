@@ -12,6 +12,17 @@
   !define TEAMTOPO_VERSION 0.1.0
 !endif
 
+' Common styles and colors
+!define TEAM_BG_COLOR #FFFFFF
+!define TEAM_BORDER_COLOR #333333
+!define TEAM_TEXT_COLOR #333333
+
+' Basic macros (to be expanded in future tickets)
+!unquoted procedure $TeamRect($name)
+  rectangle "$name" as "team_$name" <<team>> #$TEAM_BG_COLOR {
+  }
+!endprocedure
+
 ' Version compatibility check
 !if ($PLANTUML_VERSION < 1.2021)
   !error "Team Topologies extension requires PlantUML version 1.2021 or later"
@@ -32,18 +43,12 @@ skinparam {
     FontName Arial
     FontSize 14
   }
-}
-
-' Common styles and colors
-!define TEAM_BG_COLOR #FFFFFF
-!define TEAM_BORDER_COLOR #333333
-!define TEAM_TEXT_COLOR #333333
-
-' Basic macros (to be expanded in future tickets)
-!unquoted procedure TeamRect($name)
-  rectangle "$name" #$TEAM_BG_COLOR {
+  
+  Rectangle<<team>> {
+    BorderColor $TEAM_BORDER_COLOR
+    FontColor $TEAM_TEXT_COLOR
   }
-!endprocedure
+}
 
 ' Usage example:
 ' @startuml

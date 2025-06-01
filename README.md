@@ -49,10 +49,24 @@ This project uses VS Code Dev Containers to ensure a consistent development envi
    cd StartTT
    ```
 
-2. Open the project in VS Code:
+2. Open the project in VS Code using one of these methods:
+
+   a. If you have the `code` command installed:
    ```bash
    code .
    ```
+
+   b. If the `code` command is not found:
+   - Open VS Code manually
+   - Go to View → Command Palette (or press Cmd+Shift+P)
+   - Type 'shell command' and select "Shell Command: Install 'code' command in PATH"
+   - Close and reopen your terminal
+   - Then run `code .`
+
+   c. Or simply:
+   - Open VS Code
+   - Select File → Open Folder
+   - Navigate to and select the StartTT folder
 
 3. When prompted, click "Reopen in Container" or:
    - Press F1

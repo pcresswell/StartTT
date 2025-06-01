@@ -40,7 +40,10 @@ skinparam {
 !define TEAM_TEXT_COLOR #333333
 
 ' Basic macros (to be expanded in future tickets)
-!define TeamRect(name) rectangle name
+!unquoted procedure TeamRect($name)
+  rectangle "$name" #$TEAM_BG_COLOR {
+  }
+!endprocedure
 
 ' Usage example:
 ' @startuml

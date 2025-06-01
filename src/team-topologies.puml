@@ -1,0 +1,52 @@
+@startuml
+' Team Topologies PlantUML Extension
+' Version: 0.1.0
+' License: MIT
+' Repository: https://github.com/pcresswell/StartTT
+'
+' A PlantUML extension for creating Team Topologies diagrams
+' Based on the book "Team Topologies" by Matthew Skelton and Manuel Pais
+
+' Namespace declaration to avoid conflicts
+!define TEAMTOPO_PUML
+!ifndef TEAMTOPO_VERSION
+  !define TEAMTOPO_VERSION 0.1.0
+!endif
+
+' Version compatibility check
+!if ($PLANTUML_VERSION < 1.2021)
+  !error "Team Topologies extension requires PlantUML version 1.2021 or later"
+!endif
+
+' Basic skinparam settings
+skinparam {
+  ArrowColor #333333
+  ArrowThickness 2
+  DefaultTextAlignment center
+  RoundCorner 10
+  Shadowing false
+  
+  Rectangle {
+    BorderColor #333333
+    BorderThickness 2
+    FontColor #333333
+    FontName Arial
+    FontSize 14
+  }
+}
+
+' Common styles and colors
+!define TEAM_BG_COLOR #FFFFFF
+!define TEAM_BORDER_COLOR #333333
+!define TEAM_TEXT_COLOR #333333
+
+' Basic macros (to be expanded in future tickets)
+!define TeamRect(name) rectangle name
+
+' Usage example:
+' @startuml
+' !include team-topologies.puml
+' TeamRect("My Team")
+' @enduml
+
+@enduml

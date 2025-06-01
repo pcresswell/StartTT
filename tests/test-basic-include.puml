@@ -1,0 +1,9 @@
+@startuml
+' Test diagram for TT-001: Basic PlantUML include file
+
+!include ../src/team-topologies.puml
+
+' Test basic team rectangle
+TeamRect("Test Team")
+
+@enduml

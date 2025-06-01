@@ -1,0 +1,29 @@
+{
+  "name": "Team Topologies PlantUML",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jebbs.plantuml",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint"
+      ],
+      "settings": {
+        "plantuml.render": "PlantUMLServer",
+        "plantuml.server": "http://localhost:8080",
+        "editor.formatOnSave": true,
+        "files.eol": "\n"
+      }
+    }
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "java -jar /plantuml/plantuml.jar -picoweb:8080",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "11",
+      "installMaven": true
+    }
+  }
+}

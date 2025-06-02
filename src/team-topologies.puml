@@ -17,7 +17,7 @@
 !$TEAM_FONT_SIZE ?= 14
 
 ' Team Type Colors
-!$STREAM_ALIGNED_COLOR = "#2196F3"
+!$STREAM_ALIGNED_COLOR = "#FAE1A0"  ' Stream-aligned team (beige/yellow from book)
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -32,9 +32,9 @@ skinparam rectangle {
 
 ' Define specific style for Stream-aligned teams
 skinparam rectangle<<stream-aligned>> {
-  BackgroundColor #2196F3
-  BorderColor #2196F3
-  FontColor white
+  BackgroundColor #FAE1A0
+  BorderColor #E8C878
+  FontColor #333333
   RoundCorner 20
   Shadowing false
   Padding 15

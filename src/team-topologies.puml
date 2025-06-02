@@ -77,10 +77,12 @@ skinparam rectangle<<complicated>> {
 }
 
 ' Define style for collaboration 
-skinparam arrow {
-  Color #757575
-  FontColor #757575
-  Thickness 2
+skinparam rectangle<<collaboration>> {
+  BackgroundColor #7CB342
+  BorderColor transparent
+  FontColor #FFFFFF
+  RoundCorner 20
+  Shadowing false
 }
 
 ' Basic team definition
@@ -128,27 +130,12 @@ skinparam arrow {
   rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
 !endprocedure
 
-' Collaboration interaction (without label)
-!unquoted procedure Collaboration($from, $to)
-  $from <..> $to #line:#757575;line.dashed;line.thickness=2
+' Collaboration interaction using overlapping rectangles with a collaboration indicator
+!unquoted procedure Collaboration($team1, $team2, $label="Collaboration")
+  ' Create the overlap indicator rectangle
+  rectangle "<color:white><b>$label</b></color>" as ${team1}_${team2}_collab <<collaboration>>
   
-  note as Collab_${from}_${to} #7CB342
-    <color:#FFFFFF><b>Collaboration</b></color>
-  end note
-  
-  Collab_${from}_${to} -[hidden]-> $from
-  Collab_${from}_${to} -[hidden]-> $to
-!endprocedure
-
-' Collaboration interaction (with label)
-!unquoted procedure Collaboration($from, $to, $label)
-  $from <..> $to #line:#757575;line.dashed;line.thickness=2
-  
-  note as Collab_${from}_${to} #7CB342
-    <color:#FFFFFF><b>Collaboration:</b></color>
-    <color:#FFFFFF>$label</color>
-  end note
-  
-  Collab_${from}_${to} -[hidden]-> $from
-  Collab_${from}_${to} -[hidden]-> $to
+  ' Position the indicator between the teams
+  $team1 -[hidden]-> ${team1}_${team2}_collab
+  ${team1}_${team2}_collab -[hidden]-> $team2
 !endprocedure

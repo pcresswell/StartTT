@@ -1,0 +1,18 @@
+@startuml
+' Test diagram for TT-005: Complicated-subsystem Team
+
+!include ../src/team-topologies.puml
+
+' Layout direction
+left to right direction
+
+' Test Complicated-subsystem team - Basic version
+Team_Complicated(payment_engine, "Payment Processing Engine")
+
+' Test Complicated-subsystem team - With description
+Team_Complicated(risk_analysis, "Risk Analysis System", "Manages complex risk calculations and fraud detection algorithms")
+
+' Add some spacing between the teams
+payment_engine -[hidden]-> risk_analysis
+
+@enduml

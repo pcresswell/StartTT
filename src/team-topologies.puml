@@ -20,7 +20,7 @@
 !$STREAM_ALIGNED_COLOR = "#FAE1A0"
 !$PLATFORM_TEAM_COLOR = "#85B5D9"
 !$ENABLING_TEAM_COLOR = "#673AB7"
-!$COMPLICATED_SUBSYSTEM_COLOR = "#9C27B0"
+!$COMPLICATED_SUBSYSTEM_COLOR = "#4A148C"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -65,8 +65,8 @@ skinparam rectangle<<enabling>> {
 
 ' Define specific style for Complicated-subsystem teams
 skinparam rectangle<<complicated>> {
-  BackgroundColor #9C27B0
-  BorderColor #8E24AA
+  BackgroundColor #4A148C
+  BorderColor #3A1078
   FontColor #FFFFFF
   RoundCorner 20
   Shadowing false

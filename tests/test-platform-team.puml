@@ -3,10 +3,16 @@
 
 !include ../src/team-topologies.puml
 
+' Layout direction
+left to right direction
+
 ' Test Platform team - Basic version
-Team_Platform("cloud-infra", "Cloud Infrastructure")
+Team_Platform(cloud_infra, "Cloud Infrastructure")
 
 ' Test Platform team - With description
-Team_Platform("data-platform", "Data Platform", "Provides data storage and analytics capabilities")
+Team_Platform(data_platform, "Data Platform", "Provides data storage and analytics capabilities")
+
+' Add some spacing between the teams
+cloud_infra -[hidden]-> data_platform
 
 @enduml

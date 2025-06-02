@@ -63,12 +63,11 @@ skinparam rectangle<<enabling>> {
   Padding 15
 }
 
-' Define specific style for Complicated-subsystem teams
-skinparam rectangle<<complicated>> {
+' Define specific style for Complicated-subsystem teams as hexagons
+skinparam hexagon<<complicated>> {
   BackgroundColor #FF9800
   BorderColor #F57C00
   FontColor #333333
-  RoundCorner 5
   Shadowing false
   Padding 15
 }
@@ -110,10 +109,10 @@ skinparam rectangle<<complicated>> {
 
 ' Complicated-subsystem team
 !unquoted procedure Team_Complicated($alias, $label)
-  rectangle "$label" as $alias <<complicated>>
+  hexagon "$label" as $alias <<complicated>>
 !endprocedure
 
 ' Complicated-subsystem team with description
 !unquoted procedure Team_Complicated($alias, $label, $descr)
-  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<complicated>>
+  hexagon "$label\n\n<size:12>[$descr]</size>" as $alias <<complicated>>
 !endprocedure

@@ -1,0 +1,12 @@
+@startuml
+' Test diagram for TT-003: Platform Team
+
+!include ../src/team-topologies.puml
+
+' Test Platform team - Basic version
+Team_Platform("cloud-infra", "Cloud Infrastructure")
+
+' Test Platform team - With description
+Team_Platform("data-platform", "Data Platform", "Provides data storage and analytics capabilities")
+
+@enduml

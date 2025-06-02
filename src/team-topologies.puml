@@ -18,6 +18,7 @@
 
 ' Team Type Colors
 !$STREAM_ALIGNED_COLOR = "#FAE1A0"
+!$PLATFORM_TEAM_COLOR = "#FF9800"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -40,6 +41,16 @@ skinparam rectangle<<stream-aligned>> {
   Padding 15
 }
 
+' Define specific style for Platform teams
+skinparam rectangle<<platform>> {
+  BackgroundColor #FF9800
+  BorderColor #E68A00
+  FontColor #333333
+  RoundCorner 20
+  Shadowing false
+  Padding 15
+}
+
 ' Basic team definition
 !unquoted procedure Team($label)
   rectangle "$label"
@@ -53,4 +64,14 @@ skinparam rectangle<<stream-aligned>> {
 ' Stream-aligned team with description
 !unquoted procedure Team_Aligned($alias, $label, $descr)
   rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<stream-aligned>>
+!endprocedure
+
+' Platform team
+!unquoted procedure Team_Platform($alias, $label)
+  rectangle "$label" as $alias <<platform>>
+!endprocedure
+
+' Platform team with description
+!unquoted procedure Team_Platform($alias, $label, $descr)
+  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<platform>>
 !endprocedure

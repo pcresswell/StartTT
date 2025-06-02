@@ -129,10 +129,10 @@ skinparam arrow {
 
 ' Collaboration interaction (without label)
 !unquoted procedure Collaboration($from, $to)
-  $from <--> $to #line:$COLLABORATION_COLOR;line.dashed;line.thickness=2
+  $from <--> $to #757575;line.dashed;line.thickness=2
 !endprocedure
 
 ' Collaboration interaction (with label)
 !unquoted procedure Collaboration($from, $to, $label)
-  $from <--> $to #line:$COLLABORATION_COLOR;line.dashed;line.thickness=2 : <color:$COLLABORATION_COLOR>$label</color>
+  $from <--> $to #757575;line.dashed;line.thickness=2 : <color:#757575>$label</color>
 !endprocedure

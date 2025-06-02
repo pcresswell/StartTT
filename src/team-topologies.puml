@@ -19,6 +19,7 @@
 ' Team Type Colors
 !$STREAM_ALIGNED_COLOR = "#FAE1A0"
 !$PLATFORM_TEAM_COLOR = "#85B5D9"
+!$ENABLING_TEAM_COLOR = "#4CAF50"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -51,6 +52,16 @@ skinparam rectangle<<platform>> {
   Padding 15
 }
 
+' Define specific style for Enabling teams
+skinparam rectangle<<enabling>> {
+  BackgroundColor #4CAF50
+  BorderColor #368C3A
+  FontColor #333333
+  RoundCorner 20
+  Shadowing false
+  Padding 15
+}
+
 ' Basic team definition
 !unquoted procedure Team($label)
   rectangle "$label"
@@ -74,4 +85,14 @@ skinparam rectangle<<platform>> {
 ' Platform team with description
 !unquoted procedure Team_Platform($alias, $label, $descr)
   rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<platform>>
+!endprocedure
+
+' Enabling team
+!unquoted procedure Team_Enabling($alias, $label)
+  rectangle "$label" as $alias <<enabling>>
+!endprocedure
+
+' Enabling team with description
+!unquoted procedure Team_Enabling($alias, $label, $descr)
+  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<enabling>>
 !endprocedure

@@ -10,19 +10,14 @@ left to right direction
 Team_Aligned(team_a, "Frontend Team", "Builds user-facing components")
 Team_Platform(team_b, "API Platform", "Manages API infrastructure")
 
-' Add some spacing
-team_a -[hidden]- team_b
-
-' Test Collaboration interaction (without label)
+' Test Collaboration interaction (with default label)
 Collaboration(team_a, team_b)
 
+' Test with explicit label
 Team_Enabling(team_c, "Security Team", "Provides security guidance")
 Team_Complicated(team_d, "ML Subsystem", "Handles machine learning models")
 
-' Add some spacing
-team_c -[hidden]- team_d
-
-' Test Collaboration interaction (with label)
+' Test Collaboration interaction (with custom label)
 Collaboration(team_c, team_d, "Security expertise sharing")
 
 @enduml

@@ -24,7 +24,6 @@
 
 ' Interaction Colors
 !$COLLABORATION_COLOR = "#7CB342"
-!$COLLABORATION_BORDER_COLOR = "#558B2F"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -77,12 +76,13 @@ skinparam rectangle<<complicated>> {
   Padding 15
 }
 
-' Define style for collaboration interaction
-skinparam circle<<collaboration>> {
+' Define style for collaboration intersection
+skinparam rectangle<<collaboration>> {
   BackgroundColor $COLLABORATION_COLOR
-  BorderColor $COLLABORATION_BORDER_COLOR
+  BorderColor transparent
   FontColor #333333
   Shadowing false
+  RoundCorner 20
 }
 
 ' Basic team definition
@@ -130,15 +130,18 @@ skinparam circle<<collaboration>> {
   rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
 !endprocedure
 
-' Collaboration interaction 
-!unquoted procedure Collaboration($team1, $team2, $label="Collaboration")
-  together {
-    $team1
-    $team2
-    circle "$label" as ${team1}_${team2}_collab <<collaboration>> #line:transparent;back:transparent
-  }
-  
-  ' Create visual overlay effect
-  $team1 -[hidden]-> ${team1}_${team2}_collab
-  $team2 -[hidden]-> ${team1}_${team2}_collab
+' Collaboration interaction (places teams next to each other with overlap)
+!unquoted procedure Collaboration($team1, $team2, $label="")
+  ' Create positioning
+  $team1 -[hidden]r- $team2
+  ' Add collaboration label if provided
+  !if ($label != "")
+    rectangle "<size:14><b>Collaboration:</b></size>\n<size:12>$label</size>" as ${team1}_${team2}_label <<collaboration>> #line:transparent;back:transparent
+    $team1 -[hidden]d- ${team1}_${team2}_label
+    $team2 -[hidden]d- ${team1}_${team2}_label
+  !else
+    rectangle "<size:14><b>Collaboration</b></size>" as ${team1}_${team2}_label <<collaboration>> #line:transparent;back:transparent
+    $team1 -[hidden]d- ${team1}_${team2}_label
+    $team2 -[hidden]d- ${team1}_${team2}_label
+  !endif
 !endprocedure

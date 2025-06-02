@@ -85,7 +85,7 @@ skinparam rectangle<<complicated>> {
 
 ' Stream-aligned team with description
 !unquoted procedure Team_Aligned($alias, $label, $descr)
-  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<stream-aligned>>
+  rectangle "$label\n\n<size:12>$descr</size>" as $alias <<stream-aligned>>
 !endprocedure
 
 ' Platform team
@@ -95,7 +95,7 @@ skinparam rectangle<<complicated>> {
 
 ' Platform team with description
 !unquoted procedure Team_Platform($alias, $label, $descr)
-  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<platform>>
+  rectangle "$label\n\n<size:12>$descr</size>" as $alias <<platform>>
 !endprocedure
 
 ' Enabling team
@@ -105,7 +105,7 @@ skinparam rectangle<<complicated>> {
 
 ' Enabling team with description
 !unquoted procedure Team_Enabling($alias, $label, $descr)
-  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<enabling>>
+  rectangle "$label\n\n<size:12>$descr</size>" as $alias <<enabling>>
 !endprocedure
 
 ' Complicated-subsystem team
@@ -115,5 +115,5 @@ skinparam rectangle<<complicated>> {
 
 ' Complicated-subsystem team with description
 !unquoted procedure Team_Complicated($alias, $label, $descr)
-  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<complicated>>
+  rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
 !endprocedure

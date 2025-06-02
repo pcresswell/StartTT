@@ -123,12 +123,12 @@ skinparam rectangle<<complicated>> {
 
 ' Collaboration interaction (without custom label)
 !unquoted procedure Collaboration($from, $to)
-  $from <-> $to
-  note on link #white : <b>Collaboration</b>
+  $from <-[#757575,dashed]-> $to
+  note on link #white : <color:#757575><b>Collaboration</b></color>
 !endprocedure
 
 ' Collaboration interaction (with custom label)
 !unquoted procedure Collaboration($from, $to, $label)
-  $from <-> $to
-  note on link #white : <b>Collaboration:</b>\n$label
+  $from <-[#757575,dashed]-> $to
+  note on link #white : <color:#757575><b>Collaboration:</b>\n$label</color>
 !endprocedure

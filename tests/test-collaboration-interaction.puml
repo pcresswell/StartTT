@@ -10,8 +10,12 @@ left to right direction
 Team_Aligned(team_a, "Frontend Team", "Builds user-facing components")
 Team_Platform(team_b, "API Platform", "Manages API infrastructure")
 
-' Test Collaboration interaction (with default label)
+' Test Collaboration interaction (without label)
 Collaboration(team_a, team_b)
+
+' Add some vertical spacing
+team_a -[hidden]d- team_c
+team_b -[hidden]d- team_d
 
 ' Test with explicit label
 Team_Enabling(team_c, "Security Team", "Provides security guidance")

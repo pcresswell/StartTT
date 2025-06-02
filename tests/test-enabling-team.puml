@@ -1,0 +1,18 @@
+@startuml
+' Test diagram for TT-004: Enabling Team
+
+!include ../src/team-topologies.puml
+
+' Layout direction
+left to right direction
+
+' Test Enabling team - Basic version
+Team_Enabling(security_team, "Security Enablement")
+
+' Test Enabling team - With description
+Team_Enabling(devops_coaches, "DevOps Coaches", "Helps teams adopt DevOps practices and tools")
+
+' Add some spacing between the teams
+security_team -[hidden]-> devops_coaches
+
+@enduml

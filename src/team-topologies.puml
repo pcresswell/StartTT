@@ -17,7 +17,7 @@
 !$TEAM_FONT_SIZE ?= 14
 
 ' Team Type Colors
-!define TEAM_ALIGNED_COLOR #2196F3    ' Stream-aligned team (blue)
+!$STREAM_ALIGNED_COLOR = "#2196F3"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -30,10 +30,10 @@ skinparam rectangle {
   FontSize $TEAM_FONT_SIZE
 }
 
-' Stream-aligned Team style
-skinparam rectangle<<aligned>> {
-  BackgroundColor TEAM_ALIGNED_COLOR
-  BorderColor TEAM_ALIGNED_COLOR
+' Define specific style for Stream-aligned teams
+skinparam rectangle<<stream-aligned>> {
+  BackgroundColor #2196F3
+  BorderColor #2196F3
   FontColor white
   RoundCorner 20
   Shadowing false
@@ -47,10 +47,10 @@ skinparam rectangle<<aligned>> {
 
 ' Stream-aligned team
 !unquoted procedure Team_Aligned($alias, $label)
-  rectangle "$label" as $alias <<aligned>>
+  rectangle "$label" as $alias <<stream-aligned>>
 !endprocedure
 
 ' Stream-aligned team with description
 !unquoted procedure Team_Aligned($alias, $label, $descr)
-  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<aligned>>
+  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<stream-aligned>>
 !endprocedure

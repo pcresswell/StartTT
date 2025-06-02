@@ -76,13 +76,11 @@ skinparam rectangle<<complicated>> {
   Padding 15
 }
 
-' Define style for collaboration intersection
-skinparam rectangle<<collaboration>> {
-  BackgroundColor $COLLABORATION_COLOR
-  BorderColor transparent
-  FontColor #333333
-  Shadowing false
-  RoundCorner 20
+' Define style for collaboration 
+skinparam arrow {
+  Color #757575
+  FontColor #757575
+  Thickness 2
 }
 
 ' Basic team definition
@@ -130,18 +128,27 @@ skinparam rectangle<<collaboration>> {
   rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
 !endprocedure
 
-' Collaboration interaction (places teams next to each other with overlap)
-!unquoted procedure Collaboration($team1, $team2, $label="")
-  ' Create positioning
-  $team1 -[hidden]r- $team2
-  ' Add collaboration label if provided
-  !if ($label != "")
-    rectangle "<size:14><b>Collaboration:</b></size>\n<size:12>$label</size>" as ${team1}_${team2}_label <<collaboration>> #line:transparent;back:transparent
-    $team1 -[hidden]d- ${team1}_${team2}_label
-    $team2 -[hidden]d- ${team1}_${team2}_label
-  !else
-    rectangle "<size:14><b>Collaboration</b></size>" as ${team1}_${team2}_label <<collaboration>> #line:transparent;back:transparent
-    $team1 -[hidden]d- ${team1}_${team2}_label
-    $team2 -[hidden]d- ${team1}_${team2}_label
-  !endif
+' Collaboration interaction (without label)
+!unquoted procedure Collaboration($from, $to)
+  $from <..> $to #line:#757575;line.dashed;line.thickness=2
+  
+  note as Collab_${from}_${to} #7CB342
+    <color:#FFFFFF><b>Collaboration</b></color>
+  end note
+  
+  Collab_${from}_${to} -[hidden]-> $from
+  Collab_${from}_${to} -[hidden]-> $to
+!endprocedure
+
+' Collaboration interaction (with label)
+!unquoted procedure Collaboration($from, $to, $label)
+  $from <..> $to #line:#757575;line.dashed;line.thickness=2
+  
+  note as Collab_${from}_${to} #7CB342
+    <color:#FFFFFF><b>Collaboration:</b></color>
+    <color:#FFFFFF>$label</color>
+  end note
+  
+  Collab_${from}_${to} -[hidden]-> $from
+  Collab_${from}_${to} -[hidden]-> $to
 !endprocedure

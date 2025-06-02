@@ -68,7 +68,7 @@ skinparam rectangle<<complicated>> {
   BackgroundColor #FF9800
   BorderColor #F57C00
   FontColor #333333
-  RoundCorner 0
+  RoundCorner 5
   Shadowing false
   Padding 15
 }

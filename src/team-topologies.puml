@@ -18,7 +18,7 @@
 
 ' Team Type Colors
 !$STREAM_ALIGNED_COLOR = "#FAE1A0"
-!$PLATFORM_TEAM_COLOR = "#FF9800"
+!$PLATFORM_TEAM_COLOR = "#85B5D9"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -43,8 +43,8 @@ skinparam rectangle<<stream-aligned>> {
 
 ' Define specific style for Platform teams
 skinparam rectangle<<platform>> {
-  BackgroundColor #FF9800
-  BorderColor #E68A00
+  BackgroundColor #85B5D9
+  BorderColor #6FA0C0
   FontColor #333333
   RoundCorner 20
   Shadowing false

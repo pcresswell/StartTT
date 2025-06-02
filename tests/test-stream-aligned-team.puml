@@ -1,0 +1,12 @@
+@startuml
+' Test diagram for TT-002: Stream-aligned Team
+
+!include ../src/team-topologies.puml
+
+' Test Stream-aligned team - Basic version
+Team_Aligned("frontend", "Frontend")
+
+' Test Stream-aligned team - With description
+Team_Aligned("mobile", "Mobile App", "Builds and maintains customer-facing apps")
+
+@enduml

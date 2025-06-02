@@ -23,7 +23,7 @@
 !$COMPLICATED_SUBSYSTEM_COLOR = "#FF9800"
 
 ' Interaction Colors
-!$COLLABORATION_COLOR = "#7CB342"
+!$COLLABORATION_COLOR = "#757575"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -76,15 +76,6 @@ skinparam rectangle<<complicated>> {
   Padding 15
 }
 
-' Define style for collaboration overlap
-skinparam rectangle<<collaboration>> {
-  BackgroundColor #7CB342
-  BorderColor transparent
-  FontColor #333333
-  RoundCorner 20
-  Shadowing false
-}
-
 ' Basic team definition
 !unquoted procedure Team($label)
   rectangle "$label"
@@ -132,26 +123,13 @@ skinparam rectangle<<collaboration>> {
 
 ' Collaboration interaction (without label)
 !unquoted procedure Collaboration($from, $to)
-  together {
-    $from
-    $to
-    rectangle "<b>Collaboration</b>" as ${from}_${to}_collab <<collaboration>>
-  }
-  
-  ' Set layout
-  $from -[hidden]-> ${from}_${to}_collab
-  ${from}_${to}_collab -[hidden]-> $to
+  $from -[#757575,thickness=2,dashed]- $to
+  ' Add a collaboration label on the line
+  note on link #7CB342 : <color:#FFFFFF><b>Collaboration</b></color>
 !endprocedure
 
 ' Collaboration interaction (with label)
 !unquoted procedure Collaboration($from, $to, $label)
-  together {
-    $from
-    $to
-    rectangle "<b>Collaboration</b>\n$label" as ${from}_${to}_collab <<collaboration>>
-  }
-  
-  ' Set layout
-  $from -[hidden]-> ${from}_${to}_collab
-  ${from}_${to}_collab -[hidden]-> $to
+  $from -[#757575,thickness=2,dashed]- $to
+  note on link #7CB342 : <color:#FFFFFF><b>Collaboration</b></color>\n<color:#FFFFFF>$label</color>
 !endprocedure

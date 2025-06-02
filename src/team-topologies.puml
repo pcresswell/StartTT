@@ -23,7 +23,8 @@
 !$COMPLICATED_SUBSYSTEM_COLOR = "#FF9800"
 
 ' Interaction Colors
-!$COLLABORATION_COLOR = "#757575"
+!$COLLABORATION_COLOR = "#7CB342"
+!$COLLABORATION_BORDER_COLOR = "#558B2F"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -77,9 +78,11 @@ skinparam rectangle<<complicated>> {
 }
 
 ' Define style for collaboration interaction
-skinparam arrow {
-  Color #757575
-  FontColor #757575
+skinparam circle<<collaboration>> {
+  BackgroundColor $COLLABORATION_COLOR
+  BorderColor $COLLABORATION_BORDER_COLOR
+  FontColor #333333
+  Shadowing false
 }
 
 ' Basic team definition
@@ -127,12 +130,15 @@ skinparam arrow {
   rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
 !endprocedure
 
-' Collaboration interaction (without label)
-!unquoted procedure Collaboration($from, $to)
-  $from <..> $to
-!endprocedure
-
-' Collaboration interaction (with label)
-!unquoted procedure Collaboration($from, $to, $label)
-  $from <..> $to : <color:#757575>$label</color>
+' Collaboration interaction 
+!unquoted procedure Collaboration($team1, $team2, $label="Collaboration")
+  together {
+    $team1
+    $team2
+    circle "$label" as ${team1}_${team2}_collab <<collaboration>> #line:transparent;back:transparent
+  }
+  
+  ' Create visual overlay effect
+  $team1 -[hidden]-> ${team1}_${team2}_collab
+  $team2 -[hidden]-> ${team1}_${team2}_collab
 !endprocedure

@@ -17,7 +17,7 @@
 !$TEAM_FONT_SIZE ?= 14
 
 ' Team Type Colors
-!$STREAM_ALIGNED_COLOR = "#FAE1A0"  ' Stream-aligned team (beige/yellow from book)
+!$STREAM_ALIGNED_COLOR = "#FAE1A0"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center

@@ -20,6 +20,7 @@
 !$STREAM_ALIGNED_COLOR = "#FAE1A0"
 !$PLATFORM_TEAM_COLOR = "#85B5D9"
 !$ENABLING_TEAM_COLOR = "#673AB7"
+!$COMPLICATED_SUBSYSTEM_COLOR = "#4A148C"
 
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
@@ -62,6 +63,16 @@ skinparam rectangle<<enabling>> {
   Padding 15
 }
 
+' Define specific style for Complicated-subsystem teams
+skinparam rectangle<<complicated>> {
+  BackgroundColor #4A148C
+  BorderColor #3A1078
+  FontColor #FFFFFF
+  RoundCorner 20
+  Shadowing false
+  Padding 15
+}
+
 ' Basic team definition
 !unquoted procedure Team($label)
   rectangle "$label"
@@ -95,4 +106,14 @@ skinparam rectangle<<enabling>> {
 ' Enabling team with description
 !unquoted procedure Team_Enabling($alias, $label, $descr)
   rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<enabling>>
+!endprocedure
+
+' Complicated-subsystem team
+!unquoted procedure Team_Complicated($alias, $label)
+  rectangle "$label" as $alias <<complicated>>
+!endprocedure
+
+' Complicated-subsystem team with description
+!unquoted procedure Team_Complicated($alias, $label, $descr)
+  rectangle "$label\n\n<size:12>[$descr]</size>" as $alias <<complicated>>
 !endprocedure

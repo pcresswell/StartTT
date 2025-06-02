@@ -76,11 +76,11 @@ skinparam rectangle<<complicated>> {
   Padding 15
 }
 
-' Define style for collaboration 
+' Define style for collaboration overlap
 skinparam rectangle<<collaboration>> {
   BackgroundColor #7CB342
   BorderColor transparent
-  FontColor #FFFFFF
+  FontColor #333333
   RoundCorner 20
   Shadowing false
 }
@@ -130,12 +130,28 @@ skinparam rectangle<<collaboration>> {
   rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
 !endprocedure
 
-' Collaboration interaction using overlapping rectangles with a collaboration indicator
-!unquoted procedure Collaboration($team1, $team2, $label="Collaboration")
-  ' Create the overlap indicator rectangle
-  rectangle "<color:white><b>$label</b></color>" as ${team1}_${team2}_collab <<collaboration>>
+' Collaboration interaction (without label)
+!unquoted procedure Collaboration($from, $to)
+  together {
+    $from
+    $to
+    rectangle "<b>Collaboration</b>" as ${from}_${to}_collab <<collaboration>>
+  }
   
-  ' Position the indicator between the teams
-  $team1 -[hidden]-> ${team1}_${team2}_collab
-  ${team1}_${team2}_collab -[hidden]-> $team2
+  ' Set layout
+  $from -[hidden]-> ${from}_${to}_collab
+  ${from}_${to}_collab -[hidden]-> $to
+!endprocedure
+
+' Collaboration interaction (with label)
+!unquoted procedure Collaboration($from, $to, $label)
+  together {
+    $from
+    $to
+    rectangle "<b>Collaboration</b>\n$label" as ${from}_${to}_collab <<collaboration>>
+  }
+  
+  ' Set layout
+  $from -[hidden]-> ${from}_${to}_collab
+  ${from}_${to}_collab -[hidden]-> $to
 !endprocedure

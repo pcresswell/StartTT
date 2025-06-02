@@ -22,6 +22,9 @@
 !$ENABLING_TEAM_COLOR = "#673AB7"
 !$COMPLICATED_SUBSYSTEM_COLOR = "#FF9800"
 
+' Interaction Colors
+!$COLLABORATION_COLOR = "#757575"
+
 ' Basic skinparam settings
 skinparam defaultTextAlignment center
 
@@ -73,6 +76,15 @@ skinparam rectangle<<complicated>> {
   Padding 15
 }
 
+' Define style for collaboration interaction
+skinparam arrow<<collaboration>> {
+  Color $COLLABORATION_COLOR
+  Thickness 2
+  LineStyle 3
+  FontColor $COLLABORATION_COLOR
+  FontSize 12
+}
+
 ' Basic team definition
 !unquoted procedure Team($label)
   rectangle "$label"
@@ -116,4 +128,14 @@ skinparam rectangle<<complicated>> {
 ' Complicated-subsystem team with description
 !unquoted procedure Team_Complicated($alias, $label, $descr)
   rectangle "$label\n\n<size:12>$descr</size>" as $alias <<complicated>>
+!endprocedure
+
+' Collaboration interaction (without label)
+!unquoted procedure Collaboration($from, $to)
+  $from <-[#757575,thickness=2,line.dashed]-> $to <<collaboration>>
+!endprocedure
+
+' Collaboration interaction (with label)
+!unquoted procedure Collaboration($from, $to, $label)
+  $from <-[#757575,thickness=2,line.dashed]-> $to : <color:#757575>$label</color> <<collaboration>>
 !endprocedure

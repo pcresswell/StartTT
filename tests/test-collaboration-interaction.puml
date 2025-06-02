@@ -1,27 +1,26 @@
 @startuml
 ' Test diagram for TT-006: Collaboration Interaction Style
 
+!pragma teoz true
 !include ../src/team-topologies.puml
 
 ' Layout direction
 left to right direction
 
-' Define teams for testing
-Team_Aligned(team_a, "Frontend Team", "Builds user-facing components")
-Team_Platform(team_b, "API Platform", "Manages API infrastructure")
+' Define all teams first
+Team_Aligned(frontend_team, "Frontend Team", "Builds user-facing components")
+Team_Platform(api_platform, "API Platform", "Manages API infrastructure")
+Team_Enabling(security_team, "Security Team", "Provides security guidance")
+Team_Complicated(ml_subsystem, "ML Subsystem", "Handles machine learning models")
 
 ' Test Collaboration interaction (without label)
-Collaboration(team_a, team_b)
+Collaboration(frontend_team, api_platform)
 
 ' Add some vertical spacing
-team_a -[hidden]d- team_c
-team_b -[hidden]d- team_d
-
-' Test with explicit label
-Team_Enabling(team_c, "Security Team", "Provides security guidance")
-Team_Complicated(team_d, "ML Subsystem", "Handles machine learning models")
+frontend_team -[hidden]d- security_team
+api_platform -[hidden]d- ml_subsystem
 
 ' Test Collaboration interaction (with custom label)
-Collaboration(team_c, team_d, "Security expertise sharing")
+Collaboration(security_team, ml_subsystem, "Security expertise sharing")
 
 @enduml

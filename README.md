@@ -131,7 +131,7 @@ This project follows a ticket-based, incremental development approach. Each feat
 
 ## License
 
-*License information to be added*
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
